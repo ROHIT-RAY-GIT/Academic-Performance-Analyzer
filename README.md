@@ -56,11 +56,11 @@ Value: **0.8781**
 **Interpretation**: MAE measures the average magnitude of the errors in a set of predictions. An MAE of 0.8781 means that, on average, the model's predictions deviate from the actual marks by about 0.8781 marks.
 
 ## 🚀 Summary of Performance Metrics:
-**Test Accuracy: 95.14%** – High predictive accuracy on unseen data.
-**Train Accuracy: 95.89% **– Slightly higher accuracy on the training data, indicating good learning but warranting an assessment for overfitting.
-**Mean Squared Error (MSE): 1.1080** – Low average squared error suggests a good fit to the data.
-**R-squared (R²): 95.14%** – A high percentage of variance explained by study hours.
-**Mean Absolute Error (MAE): 0.8781** – Indicates average absolute prediction error is small.
+- **Test Accuracy: 95.14%** – High predictive accuracy on unseen data.
+- **Train Accuracy: 95.89%**– Slightly higher accuracy on the training data, indicating good learning but warranting an assessment for overfitting.
+- **Mean Squared Error (MSE): 1.1080** – Low average squared error suggests a good fit to the data.
+- **R-squared (R²): 95.14%** – A high percentage of variance explained by study hours.
+- **Mean Absolute Error (MAE): 0.8781** – Indicates average absolute prediction error is small.
 
 ## Conclusion:
 The results show that the Student Mark Predictor model is highly effective in predicting student performance based on study hours. The high accuracies and low error metrics reflect a robust model capable of generalizing well to unseen data.
