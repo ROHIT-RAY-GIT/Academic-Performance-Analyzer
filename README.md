@@ -29,9 +29,9 @@ The **Academic Performance Analyzer** is a machine learning project that predict
 
 ## 📊 Model Performance Metrics:
 
-**- Mean Squared Error (MSE): 1.1080**
-**- R-squared (R²): 0.9514 (95.14%)**
-**- Mean Absolute Error (MAE): 0.8781**
+- **Mean Squared Error (MSE): 1.1080**
+- **R-squared (R²): 0.9514 (95.14%)**
+- **Mean Absolute Error (MAE): 0.8781**
 
 ## 📈 Results and Analysis:
 
