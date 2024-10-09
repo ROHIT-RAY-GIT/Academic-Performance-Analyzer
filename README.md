@@ -37,23 +37,23 @@ The **Academic Performance Analyzer** is a machine learning project that predict
 
 - **Test Accuracy:**
 Value: **0.9514** (or 95.14%)
-**Interpretation**: This indicates that the model correctly predicts student marks approximately 95.14% of the time on the test dataset. High test accuracy suggests that the model generalizes well to new, unseen data and effectively captures the relationship between study hours and student performance.
+- **Interpretation**: This indicates that the model correctly predicts student marks approximately 95.14% of the time on the test dataset. High test accuracy suggests that the model generalizes well to new, unseen data and effectively captures the relationship between study hours and student performance.
 
 - **Train Accuracy:**
 Value: 0.9589 (or 95.89%)
-**Interpretation**: The model achieves an accuracy of 95.89% on the training dataset. This score is slightly higher than the test accuracy, indicating that the model has learned well from the training data. However, it's essential to ensure that the model is not overfitting.
+- **Interpretation**: The model achieves an accuracy of 95.89% on the training dataset. This score is slightly higher than the test accuracy, indicating that the model has learned well from the training data. However, it's essential to ensure that the model is not overfitting.
 
 - **Mean Squared Error (MSE):**
 Value: **1.1080**
-**Interpretation**: MSE measures the average squared difference between the predicted marks and the actual marks. A lower MSE value indicates a better fit of the model to the data. In this case, an MSE of 1.1080 suggests that, on average, the squared errors of predictions are small.
+- **Interpretation**: MSE measures the average squared difference between the predicted marks and the actual marks. A lower MSE value indicates a better fit of the model to the data. In this case, an MSE of 1.1080 suggests that, on average, the squared errors of predictions are small.
 
 - **R-squared (R²):**
 Value: **0.9514** (or 95.14%)
-**Interpretation**: R² indicates the proportion of variance in the dependent variable (student marks) that can be explained by the independent variable (study hours). An R² value of 0.9514 implies that approximately 95.14% of the variability in student marks can be explained by their study hours.
+- **Interpretation**: R² indicates the proportion of variance in the dependent variable (student marks) that can be explained by the independent variable (study hours). An R² value of 0.9514 implies that approximately 95.14% of the variability in student marks can be explained by their study hours.
 
 - **Mean Absolute Error (MAE):**
 Value: **0.8781**
-**Interpretation**: MAE measures the average magnitude of the errors in a set of predictions. An MAE of 0.8781 means that, on average, the model's predictions deviate from the actual marks by about 0.8781 marks.
+- **Interpretation**: MAE measures the average magnitude of the errors in a set of predictions. An MAE of 0.8781 means that, on average, the model's predictions deviate from the actual marks by about 0.8781 marks.
 
 ## 🚀 Summary of Performance Metrics:
 - **Test Accuracy: 95.14%** – High predictive accuracy on unseen data.
