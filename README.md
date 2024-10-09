@@ -11,8 +11,6 @@ The **Academic Performance Analyzer** is a machine learning project that predict
 - [Results and Analysis](#results-and-analysis)
 - [Summary of Performance Metrics](#summary-of-performance-metrics)
 - [Conclusion](#conclusion)
-- [Contributors](#contributors)
-- [License](#license)
 
 ## Features
 - 📈 Predicts student marks based on input study hours.
