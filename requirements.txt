@@ -1,4 +1,5 @@
-Flask
-numpy
+streamlit
 scikit-learn
 pandas
+numpy
+matplotlib
