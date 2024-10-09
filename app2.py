@@ -5,10 +5,59 @@ import pickle
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import os
+import base64
 
 # Loading the trained model
 with open('student_marks_predictor_model.pkl', 'rb') as file:
     model = pickle.load(file)
+
+# Function to read and encode the image file
+def get_base64_image(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    return encoded_string
+
+# Set the background image using CSS
+def set_background(image_base64):
+    page_bg_img = f"""
+    <style>
+    .stApp {{
+        background: url("data:image/png;base64,{image_base64}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+    }}
+    .css-1g8v9l0 {{
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center; /* Centering the text */
+    }}
+    h1, h2, h3, h4, h5, h6, p, span, div, label {{
+        color: white;
+    }}
+    .stButton > button {{
+        background-color: #4C4C6D;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+    }}
+    .stButton > button:hover {{
+        background-color: #6A5ACD;
+    }}
+    .stSlider > div {{
+        background-color: transparent;
+    }}
+    </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Call the function with the uploaded background image
+image_base64 = get_base64_image("image3.jpg")
+set_background(image_base64)
 
 # Function to predict marks
 def predict_marks(study_hours):
@@ -27,31 +76,37 @@ def save_to_csv(study_hours, predicted_marks):
     new_data.to_csv(file_path, mode='a', header=False, index=False)
 
 # Dashboard title
-st.title("Student Mark Predictor 📚")
+# Dashboard title with emoji
+st.markdown("<h1 style='text-align: center;'>Academic Performance Analyzer</h1>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)  # Horizontal line
 st.markdown("<br>", unsafe_allow_html=True)
 
-# Sidebar for user input
-st.sidebar.header("Input Parameters")
-study_hours = st.sidebar.number_input("Enter Study Hours:", min_value=0.0, max_value=24.0, value=0.0)
+# Input for study hours with minimum of 1 hour and maximum of 23 hours
+study_hours = st.number_input("Enter Study Hours:", min_value=1.0, max_value=23.0, value=1.0)
+
+# Function to predict marks
+def predict_marks(study_hours):
+    # Predict marks using the model
+    predicted_marks = model.predict([[study_hours]])[0][0]
+    
+    # Clip the predicted marks to be between 0 and 100
+    return max(0, min(predicted_marks, 99))
 
 # Button to trigger prediction
-if st.sidebar.button("Predict"):
+if st.button("Predict"):
     predicted_marks = predict_marks(study_hours)
     # Display predicted marks in a larger, bold font
     st.markdown(f"<h3 style='font-weight: bold;'>Predicted Marks for {study_hours} hours of study: <span style='color: blue;'>{predicted_marks:.2f} %</span></h2>", unsafe_allow_html=True)
-    
+
     # Add a gap and a horizontal line
     st.markdown("<hr>", unsafe_allow_html=True)  # Horizontal line
     st.markdown("<br>", unsafe_allow_html=True)  # Gap
 
     # Save input and prediction to CSV
     save_to_csv(study_hours, predicted_marks)
-    # st.success("Input hours and predicted marks saved to predictions.csv!")
 
     # Display model performance metrics
-    # Replace these with your actual metrics from the previous code
     mse = 1.108  # Example value, replace with actual MSE
     r2 = 0.951  # Example value, replace with actual R²
     mae = 0.8780690208883186  # Replace with actual MAE computation
@@ -61,17 +116,6 @@ if st.sidebar.button("Predict"):
     st.write(f"Mean Squared Error (MSE): **{mse:.3f}**")
     st.write(f"R-squared (R²): **{r2:.3f}**")
     st.write(f"Mean Absolute Error (MAE): **{mae:.3f}**")
-
-    # Create a plot for visualization
-    # st.subheader("Predicted vs Actual Marks")
-    # plt.figure(figsize=(10, 6))
-    # plt.scatter([study_hours], [predicted_marks], color='blue', label='Predicted Marks')
-    # plt.plot([0, 24], [0, 100], color='red', linestyle='--', label='Perfect Prediction Line')
-    # plt.title("Actual vs Predicted Marks")
-    # plt.xlabel("Study Hours")
-    # plt.ylabel("Marks")
-    # plt.legend()
-    # st.pyplot(plt)
 
 # Footer
 st.markdown("---")
